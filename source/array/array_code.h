@@ -17,5 +17,14 @@ array<T,S>::array(std::initializer_list<T> list){
   }
 }
 
+template <class T,size_t S>
+size_t array<T,S>::size() const{
+  return S;
+}
+
+template <class T,size_t S>
+bool array<T,S>::empty() const{
+  return S == 0;
+}
 
 #endif//_ARRAY_CODE_H_

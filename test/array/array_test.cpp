@@ -54,3 +54,39 @@ SCENARIO("array can be constructed",
   }
 
 }
+
+SCENARIO("array size could be checked",
+	 "[size][array]"){
+
+  GIVEN("an array with size greater then 0"){
+    tc::array<int,42> arr;
+
+    WHEN("size is checked"){
+      THEN("it returns the correct size"){
+	REQUIRE(arr.size() == 42);
+      }
+    }
+
+    WHEN("checked whether the array is empty"){
+      THEN("it the result is flase"){
+	REQUIRE_FALSE(arr.empty());
+      }
+    }
+  }
+
+  GIVEN("an array with size equal 0"){
+    tc::array<int,0> arr;
+
+    WHEN("size is checked"){
+      THEN("it returns the correct size"){
+	REQUIRE(arr.size() == 0);
+      }
+    }
+
+    WHEN("checked whether the array is empty"){
+      THEN("it the result is true"){
+	REQUIRE(arr.empty());
+      }
+    }
+  }
+}
